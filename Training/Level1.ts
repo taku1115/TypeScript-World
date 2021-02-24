@@ -35,7 +35,6 @@ showUserInfo({
   name: 'Mary Sue',
   private: false,
 });
-// エラー例 2
 const usr: User = {
   name: 'Gombe Nanashino',
   age: 100,
@@ -51,3 +50,16 @@ type User = {
 
 //////////////////////////////////////////////////
 
+// 3. 関数の型を定義する
+const isPositive: IsPositiveFunc = num => num >= 0;
+
+// 使用例
+isPositive(5);
+
+// エラー例
+isPositive('foo');
+const res: number = isPositive(123);
+
+// 回答
+type IsPositiveFunc = (arg: number) => boolean;
+// Good : interface IsPositiveFunc {(arg: number): boolean;} もOK
